@@ -45,9 +45,9 @@ CREATE TABLE hackaton.empresa_google (
   int_id_dataset bigint unsigned NOT NULL,
   var_nomb_comp character varying(400) NOT NULL,
   var_direccion character varying(300) NOT NULL,
-  
   int_califi_estrellas  integer NOT NULL,
   int_sentimiento_comentarios  integer NOT NULL,
+  var_place_id integer NOT NULL,  
   
   CONSTRAINT empresa_google_pkey PRIMARY KEY (srl_id),
   CONSTRAINT dataset2_fkey FOREIGN KEY(int_id_dataset) REFERENCES hackaton.dataset(srl_id)
@@ -57,12 +57,10 @@ CREATE TABLE hackaton.empresa_google_comentarios (
   int_id_empresa_google bigint unsigned NOT NULL,
   var_comentario character varying(400) NOT NULL,
   int_sentimiento_comentarios  integer NOT NULL,
+  var_fecha_comentario character varying(100) NOT NULL,
   CONSTRAINT empresa_google_comentarios_pkey PRIMARY KEY (srl_id),
   CONSTRAINT empresa_google1_fkey FOREIGN KEY(int_id_empresa_google) REFERENCES hackaton.empresa_google(srl_id)
 );
-
-
-
 
 CREATE TABLE hackaton.inegi (
   srl_id serial NOT NULL,
